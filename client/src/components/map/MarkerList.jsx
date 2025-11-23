@@ -2,6 +2,7 @@
  NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
  Prompt: Modify my markers list component to add professional styling
  Response: See below. Also see ../../styles/MarkerList.css
+ Note: AI is good at making css and classNames match with less mistakes than humans
  */
 
 import { Link } from 'react-router-dom'

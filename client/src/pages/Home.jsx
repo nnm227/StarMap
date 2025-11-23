@@ -2,7 +2,7 @@
 // NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
 // Prompt: Please create a professional looking home page for my web app using the project document to understand the purpose of the app.
 // Response: See below. Also see ../styles/Home.css.
-// Reason: This task seemed well suited for AI assistance to make professional looking home page without spending hours on design. 
+// Note: AI helps to get started and to make design decisions that are visually appealing in less time
 
 
 import { Link } from 'react-router-dom'

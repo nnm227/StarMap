@@ -1,3 +1,4 @@
+<!-- This document was modified from our project overview pdf document submitted by email -->
 # Team Starfruit Project Document
 
 **Project Name:** StarMap
@@ -77,3 +78,4 @@ A Node.js and Express REST API will handle:
    * Users (account information and roles).
    * Markers (event details and map location).
    * Comments (user comments attached to markers).
+

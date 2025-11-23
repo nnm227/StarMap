@@ -1,0 +1,153 @@
+/* AI Disclosure: 
+ NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
+ Prompt: Please professionally style my MarkerList side bar
+ Response: See below. 
+*/
+
+.marker-list-container {
+    width: 350px;
+    background-color: #f8f9fa;
+    padding: 0;
+    overflow-y: auto;
+    border-right: 1px solid #dee2e6;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.marker-list-header {
+    padding: 20px;
+    background-color: #1976d2;
+    color: white;
+    border-bottom: 3px solid #1565c0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.marker-list-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.marker-list-user-info {
+    font-size: 13px;
+    margin: 8px 0 0 0;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.marker-list-count {
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    opacity: 0.8;
+}
+
+.marker-list-content {
+    padding: 12px;
+}
+
+.marker-list-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.marker-list-empty p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.marker-list-empty-hint {
+    font-size: 12px;
+    margin: 8px 0 0 0;
+}
+
+.marker-card {
+    padding: 16px;
+    margin: 0 0 12px 0;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.marker-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #1976d2;
+}
+
+.marker-card-user-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #1976d2;
+}
+
+.marker-card-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #212529;
+    line-height: 1.4;
+}
+
+.marker-card-description {
+    font-size: 13px;
+    margin: 0 0 12px 0;
+    color: #495057;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.marker-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.marker-card-author {
+    font-size: 11px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.marker-card-badge {
+    font-size: 10px;
+    color: #1976d2;
+    font-weight: 600;
+    background-color: #e3f2fd;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.home-link {
+  padding: 6px 12px;
+  background-color: white;
+  color: #1976d2;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.home-link:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}

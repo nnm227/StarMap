@@ -1,26 +1,25 @@
-import {useState, useEffect} from 'react'
+import {Routes, Route, BrowserRouter} from 'react-router-dom'
+import './styles/App.css'
+import Layout from './Layout'
+import Map from './pages/Map'
+import NoMatch from './pages/NoMatch'
+import Home from './pages/Home'
+
 
 
 function App() {
-  const [apiStatus, setAPIStatus] = useState()
-
-  useEffect(() => {
-    fetch('http://localhost:3000/up')
-    .then(res => res.json())
-    .then(result => {
-      console.log(result.status)
-      setAPIStatus(result)
-  })
-  }, [])
-
-  
-  return (
-    <div>
-    <h1>To get started, begin editing SRC/App.js</h1>
-    {apiStatus ? <h2>Testing app end point: <div style={{color: apiStatus.status === 'up' ? 'green':'red'}}>{apiStatus.status}</div></h2>:null }
-    </div>
+  return(
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<Home/>} />
+        <Route path='/map' element={<Map/>}/>
+        <Route path='*' element={<NoMatch/>}/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
   )
-   
+
 }
 
-export default App;
+export default App

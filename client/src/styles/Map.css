@@ -1,0 +1,44 @@
+/* Style the map container */
+.map-page-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+
+/* Toggle sidebar button */
+.map-toggle-sidebar-button {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1002;
+    padding: 20px 8px;
+    background-color: #1976d2;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    writing-mode: horizontal-tb;
+}
+
+.map-toggle-sidebar-button:hover {
+    background-color: #1565c0;
+    padding-right: 12px;
+}
+
+/* When sidebar is visible, adjust toggle button position */
+.map-page-container:has(.marker-list-container) .map-toggle-sidebar-button {
+    left: 350px; /* Width of sidebar */
+}

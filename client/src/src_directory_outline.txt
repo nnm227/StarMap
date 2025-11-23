@@ -1,0 +1,20 @@
+// General layout and overview of the client/src directory, can modify as needed
+
+client/src/
+├── App.jsx                     // Main application component with routing
+├── Layout.jsx                  // Layout component with header/footer
+├── pages/
+│   └── Map.jsx                    // Main map page component
+│   └── NoMatch.jsx                // 404 page component
+├── components/
+│   ├── map/
+│   │   ├── MapContainer.jsx       // Leaflet map wrapper
+│   │   ├── MarkerPopup.jsx        // Individual marker popup with details
+│   │   ├── AddMarkerControl.jsx   // Control for adding new markers
+│   │   └── MarkerList.jsx         // Sidebar list of all markers
+│   ├── auth/
+│   │   ├── Login.jsx              // Login form
+│   │   └── Register.jsx           // Registration form
+│   └── moderation/
+│       ├── CommentList.jsx        // Comments section for markers
+│       └── ModeratorPanel.jsx     // Admin/moderator controls

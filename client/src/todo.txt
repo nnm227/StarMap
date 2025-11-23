@@ -1,0 +1,15 @@
+Features to add:
+- User authentication (login/register)
+- Map markers (add/edit/delete)
+- Commenting system for markers
+- Admin/moderator controls
+
+Features that would be nice (can talk about during demo if not implemented):
+- Old markers archive after certain time
+- Real-time "chat" feature for users at same event
+- "Verified" markers for official events, clubs, and organizations
+- User profiles with event history
+- Game aspects (badges, points for contributions)
+
+
+

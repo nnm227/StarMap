@@ -1,7 +1,30 @@
 # CSE264 Final Project: Full Stack
 ## Due: Friday, May 2, 2025 at 11:59 PM
 ## Add your full name and Lehigh email address to this README!
+## Nikhil Manakkal, nnm227@lehigh.edu
 
+### Tasks Todo By Team Member
+
+## Nikhil Manakkal
+* Main task: use Leaflet to design interactive map
+* todo:
+    * design home page for website (complete)
+    * add markers to the map  (complete)
+    * edit markers if marker owner or admin/mod  (complete)
+    * remove markers if marker owner or admin/mod  (complete)
+## Daniel Lee
+* Main task: set up database and handle logins
+* todo:
+    * create 3 new databases *Users*, *Markers*, and *Comments*
+    * find a way to securely share .env file 
+    * page to create user accounts (send POST request to backend)
+    * page to log users into accounts (send GET request to backend)
+## Jake Fifer
+* Main task: create internal API structure to submit queries to database
+* todo:
+    * GET, POST, PUT, DELETE requests for Users
+    * GET, POST, PUT, DELETE requests for Markers
+    * GET, POST, PUT, DELETE requests for Comments
 
 This repo contains the boilerplate code for a full stack application using Express and React.  If you need a database table, please let your instructor know.
 

@@ -3,28 +3,35 @@
 ## Add your full name and Lehigh email address to this README!
 ## Nikhil Manakkal, nnm227@lehigh.edu
 
+
 ### Tasks Todo By Team Member
 
 ## Nikhil Manakkal
 * Main task: use Leaflet to design interactive map
 * todo:
-    * design home page for website (complete)
-    * add markers to the map  (complete)
-    * edit markers if marker owner or admin/mod  (complete)
-    * remove markers if marker owner or admin/mod  (complete)
+    * design home page for website and map (complete)
+    * add markers to the map (needs backend)
+    * edit markers if marker owner or admin/mod  (needs backend)
+    * remove markers if marker owner or admin/mod  (needs backend)
 ## Daniel Lee
 * Main task: set up database and handle logins
 * todo:
-    * setup 3 new databases *Users*, *Markers*, and *Comments*
+    * create 3 new databases *Users*, *Markers*, and *Comments*
     * find a way to securely share .env file 
-    * page to create user accounts (send POST request to backend)
-    * page to log users into accounts (send GET request to backend)
+    * page to create user accounts (send POST request to backend) (needs backend)
+    * page to log users into accounts (send GET request to backend) (needs backend)
 ## Jake Fifer
 * Main task: create internal API structure to submit queries to database
 * todo:
     * GET, POST, PUT, DELETE requests for Users
     * GET, POST, PUT, DELETE requests for Markers
     * GET, POST, PUT, DELETE requests for Comments
+## Everyone
+* Work together to make sure that feature integrate together
+* Communicate to make sure that backend and frontend follow the same structure (ie requests made from the frontend matches what the backend expects)
+* Finalize project documentation such as installation guide and API setup
+
+
 
 This repo contains the boilerplate code for a full stack application using Express and React.  If you need a database table, please let your instructor know.
 

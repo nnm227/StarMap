@@ -15,7 +15,7 @@
 ## Daniel Lee
 * Main task: set up database and handle logins
 * todo:
-    * create 3 new databases *Users*, *Markers*, and *Comments*
+    * setup 3 new databases *Users*, *Markers*, and *Comments*
     * find a way to securely share .env file 
     * page to create user accounts (send POST request to backend)
     * page to log users into accounts (send GET request to backend)

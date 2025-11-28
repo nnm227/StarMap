@@ -16,10 +16,10 @@
 ## Daniel Lee
 * Main task: set up database and handle logins
 * todo:
-    * create 3 new databases *Users*, *Markers*, and *Comments*
-    * find a way to securely share .env file 
+    * set up 3 new databases *Users*, *Markers*, and *Comments*
     * page to create user accounts (send POST request to backend) (needs backend)
     * page to log users into accounts (send GET request to backend) (needs backend)
+    * page for admin panel that can ban or "delete" users (needs backend)
 ## Jake Fifer
 * Main task: create internal API structure to submit queries to database
 * todo:

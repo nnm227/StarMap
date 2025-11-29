@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import 'dotenv/config'
 
 
@@ -11,12 +12,19 @@ const app = express()
 app.set('port', process.env.PORT || 3000);
 // set up some middleware to handle processing body requests
 app.use(express.json())
+app.use(cookieParser())
 // set up some midlleware to handle cors
-app.use(cors())
+// app.use(cors())
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+  })
+)
 
 // base route
 app.get('/', (req, res) => {
-    res.send("Welcome to the Job Application Tracker API!!!")
+    res.send("Welcome to the StarMap API!!!")
 })
 
 

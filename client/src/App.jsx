@@ -14,6 +14,8 @@ function App() {
       <Route path='/' element={<Layout/>}>
         <Route index element={<Home/>} />
         <Route path='/map' element={<Map/>}/>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='*' element={<NoMatch/>}/>
       </Route>
     </Routes>

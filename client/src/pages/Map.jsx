@@ -4,28 +4,41 @@ import MarkerList from '../components/map/MarkerList'
 import '../styles/Map.css'
 
 // import ModeratorPanel from '../components/moderation/ModeratorPanel'
-
-
 export default function Map() {
-    // State variables for map functions
+    // state variables for map functions
     const [markers, setMarkers] = useState([])
     const [selectedMarker, setSelectedMarker] = useState(null)
     const [user, setUser] = useState(null) // Currently logged-in user
     const [isAddingMarker, setIsAddingMarker] = useState(false)
     const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
-    // Fetch markers from API
-    useEffect(() => {
-        const fetchMarkers = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/api/markers')
-                const data = await response.json()
-                setMarkers(data)
-            } catch (error) {
-                console.error('Error fetching markers:', error)
-            }
+    //debug that sets a false user 
+    const setDemoUser = () => {
+        const demoUser = {
+            id: 999,
+            username: 'demo_user',
+            email: 'demo@lehigh.edu',
+            role: 'user'
         }
+        setUser(demoUser)
+        console.log('Demo user set:', demoUser)
+    }
+
+    // fetch markers from API
+    const fetchMarkers = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/markers')
+            const data = await response.json()
+            setMarkers(data)
+        } catch (error) {
+            console.error('Error fetching markers:', error)
+        }
+    }
+
+    // effect to fetch markers on map load
+    useEffect(() => {
         fetchMarkers()
+        setDemoUser() // debug - get rid of when user auth fixed
     }, [])
 
     // fetch current user (for authentication)
@@ -33,7 +46,7 @@ export default function Map() {
         const fetchUser = async () => {
             try {
                 const response = await fetch('http://localhost:3000/api/auth/current', {
-                    credentials: include
+                    credentials: 'include'
                 })
 
                 if (response.ok) {
@@ -51,20 +64,21 @@ export default function Map() {
                 setUser(null)
             }
         }
-        fetchUser()
+        //debug - uncomment this when user auth exists
+        // fetchUser()
     }, [])
 
     // debug to see if log in works
     useEffect(() => {
         console.log('Current user:', user)
-        console.log('User not logged in', !!user)
+        console.log('User logged in?', !!user)
     }, [user])
 
 
     return (
         <div className="map-page-container">
 
-            {/* Toggle sidebar button */}
+            {/* toggle sidebar button */}
             <button
                 onClick={() => setIsSidebarVisible(!isSidebarVisible)}
                 className="map-toggle-sidebar-button"
@@ -73,7 +87,7 @@ export default function Map() {
                 {isSidebarVisible ? '◀' : '▶'}
             </button>
 
-            {/* Sidebar with marker list - conditionally rendered */}
+            {/* sidebar with marker list that is conditionally rendered */}
             {isSidebarVisible && (
                 <MarkerList
                     markers={markers}
@@ -82,7 +96,7 @@ export default function Map() {
                 />
             )}
 
-            {/* Main map area */}
+            {/* main map area */}
             <MapContainer
                 markers={markers}
                 selectedMarker={selectedMarker}

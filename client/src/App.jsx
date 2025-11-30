@@ -4,7 +4,8 @@ import Layout from './Layout'
 import Map from './pages/Map'
 import NoMatch from './pages/NoMatch'
 import Home from './pages/Home'
-
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
 
 function App() {

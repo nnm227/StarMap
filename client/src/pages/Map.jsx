@@ -28,19 +28,38 @@ export default function Map() {
         fetchMarkers()
     }, [])
 
-    // Fetch current user (for authentication)
+    // fetch current user (for authentication)
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/auth/current')
-                const data = await response.json()
-                setUser(data)
+                const response = await fetch('http://localhost:3000/api/auth/current', {
+                    credentials: include
+                })
+
+                if (response.ok) {
+                    const data = await response.json()
+                    if (data && data.id && data.role !== 'banned') { // user must be valid, not banned and have an id
+                        setUser(data)
+                    } else {
+                        setUser(null)
+                    }
+                } else {
+                    setUser(null)
+                }
             } catch (error) {
                 console.error('Not logged in')
+                setUser(null)
             }
         }
         fetchUser()
     }, [])
+
+    // debug to see if log in works
+    useEffect(() => {
+        console.log('Current user:', user)
+        console.log('User not logged in', !!user)
+    }, [user])
+
 
     return (
         <div className="map-page-container">
@@ -62,8 +81,6 @@ export default function Map() {
                     user={user}
                 />
             )}
-
-
 
             {/* Main map area */}
             <MapContainer

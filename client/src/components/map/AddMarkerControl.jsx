@@ -1,7 +1,7 @@
 /* AI Disclosure: 
  NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
  Prompt: Modify my add markers component to add professional styling
- Response: See below. Also see ../../styles/addMarkerControl.css
+ Response: See below. It modified class names of each element in the return. Also see ../../styles/addMarkerControl.css
  Note: AI is good at making css and classNames match with less mistakes than humans
  */
 
@@ -17,6 +17,7 @@ export default function AddMarkerControl({
   setNewMarkerPosition,
   onMarkerAdded
 }) {
+
   //State variables for title and description
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')

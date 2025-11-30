@@ -18,3 +18,4 @@ client/src/
 │   └── moderation/
 │       ├── CommentList.jsx        // Comments section for markers
 │       └── ModeratorPanel.jsx     // Admin/moderator controls
+

@@ -35,9 +35,8 @@ The application uses a PostgreSQL database with:
 * **Comments:** User comments attached to markers.
 
 ### Interactive UI
-* The frontend displays an interactive campus map in which you can pan, zoom, and search for locations.
-* Users can click on the map to add event markers, open markers to view details, and read or write comments.
-* Markers update in real time when users add or modify events.
+
+The frontend displays an interactive campus map in which you can pan, zoom, and search for locations. Users can click on the map to add event markers, open markers to view details, and read or write comments. Markers update in real time when users add or modify events.
 
 ### New Library or Framework
 * We will use **Leaflet.js** for the interactive map.
@@ -55,10 +54,9 @@ A Node.js and Express REST API will handle:
 ### External REST API
 * The application will use **OpenStreetMap** to fetch the map tiles that Leaflet displays.
 
-## User Story
-* A new user visits the site and sees an interactive campus map. Logged out, they can browse existing event markers.
-* After creating an account, they can post an event marker anywhere by clicking on the map.
-* They can comment on events posted by other users. Moderators can remove markers and comments. Admins can manage user access.
+### User Story
+
+A new user visits the site and sees an interactive campus map. Logged out, they can browse existing event markers. After creating an account, they can post an event marker anywhere by clicking on the map. They can comment on events posted by other users. Moderators can remove markers and comments. Admins can manage user access.
 
 ## Technical Design
 

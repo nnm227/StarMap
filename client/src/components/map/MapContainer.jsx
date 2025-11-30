@@ -136,7 +136,7 @@ export default function MapContainer({
 
             {/* Control panel for adding markers */}
             {/* replace true with user when authentication is added */}
-            {true && (
+            {user && (
                 <AddMarkerControl
                     isAddingMarker={isAddingMarker}
                     setIsAddingMarker={setIsAddingMarker}

@@ -13,7 +13,6 @@ function makeToken(user) {
       email: user.email,
       username: user.username,
       role: user.role,
-      is_banned: user.is_banned
     },
     process.env.JWT_SECRET,
     { expiresIn: '1h' }
@@ -22,31 +21,26 @@ function makeToken(user) {
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
-  const { email, username, password, display_name } = req.body
-
+  const { email, username, password } = req.body
   if (!email || !username || !password) {
     return res.status(400).json({ error: 'Missing required fields' })
   }
-
   try {
     const password_hash = await bcrypt.hash(password, 10)
-
     const result = await query(
-      `INSERT INTO users (email, username, password_hash, display_name)
-       VALUES ($1, $2, $3, $4)
-       RETURNING id, email, username, role, is_banned`,
-      [email, username, password_hash, display_name ?? null]
+      `INSERT INTO users (email, username, password_hash)
+       VALUES ($1, $2, $3)
+       RETURNING id, email, username, role, created_at, updated_at`,
+      [email, username, password_hash]
     )
-
     const user = result.rows[0]
     const token = makeToken(user)
-
     res
       .cookie('auth', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
-        maxAge: 60 * 60 * 1000
+        maxAge: 60 * 60 * 1000,
       })
       .json({ user })
   } catch (err) {
@@ -62,42 +56,34 @@ router.post('/register', async (req, res) => {
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body
-
   if (!email || !password) {
     return res.status(400).json({ error: 'Missing email or password' })
   }
-
   try {
     const result = await query(
-      `SELECT id, email, username, password_hash, role, is_banned
+      `SELECT id, email, username, password_hash, role, created_at, updated_at
        FROM users
        WHERE email = $1`,
       [email]
     )
-
     if (result.rows.length === 0) {
       return res.status(401).json({ error: 'Invalid email or password' })
     }
-
     const user = result.rows[0]
-
-    if (user.is_banned) {
+    if (user.role === 'banned') {
       return res.status(403).json({ error: 'This account has been banned.' })
     }
-
     const ok = await bcrypt.compare(password, user.password_hash)
     if (!ok) {
       return res.status(401).json({ error: 'Invalid email or password' })
     }
-
     const token = makeToken(user)
-
     res
       .cookie('auth', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
-        maxAge: 60 * 60 * 1000
+        maxAge: 60 * 60 * 1000,
       })
       .json({
         user: {
@@ -105,8 +91,9 @@ router.post('/login', async (req, res) => {
           email: user.email,
           username: user.username,
           role: user.role,
-          is_banned: user.is_banned
-        }
+          created_at: user.created_at,
+          updated_at: user.updated_at,
+        },
       })
   } catch (err) {
     console.error(err)
@@ -123,7 +110,6 @@ router.post('/logout', (req, res) => {
 router.get('/current', (req, res) => {
   const token = req.cookies?.auth
   if (!token) return res.status(401).json({ error: 'Not authenticated' })
-
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
     res.json(payload)

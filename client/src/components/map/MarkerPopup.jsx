@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import CommentList from '../moderation/CommentList'
+import CommentList from '../moderation/CommentList'
 
 // Shows details including comments on a marker when you click on it
 export default function MarkerPopup({ marker, user, onClose }) {
@@ -74,12 +74,12 @@ export default function MarkerPopup({ marker, user, onClose }) {
         )}
 
       <hr />
-      {/* Not implemented yet. But will show a list of all comments that are associated with the marker */}
-      {/* <CommentList 
+      {/* a comments section with a way to add comments and moderation features */}
+      <CommentList 
         comments={comments}
         markerId={marker.id}
         user={user}
-      /> */}
+      />
     </div>
   )
 }

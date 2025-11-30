@@ -13,16 +13,16 @@ export default function Map() {
     const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
     //debug that sets a false user 
-    const setDemoUser = () => {
-        const demoUser = {
-            id: 999,
-            username: 'demo_user',
-            email: 'demo@lehigh.edu',
-            role: 'user'
-        }
-        setUser(demoUser)
-        console.log('Demo user set:', demoUser)
-    }
+    // const setDemoUser = () => {
+    //     const demoUser = {
+    //         id: 999,
+    //         username: 'demo_user',
+    //         email: 'demo@lehigh.edu',
+    //         role: 'user'
+    //     }
+    //     setUser(demoUser)
+    //     console.log('Demo user set:', demoUser)
+    // }
 
     // fetch markers from API
     const fetchMarkers = async () => {
@@ -38,7 +38,7 @@ export default function Map() {
     // effect to fetch markers on map load
     useEffect(() => {
         fetchMarkers()
-        setDemoUser() // debug - get rid of when user auth fixed
+        // setDemoUser() // debug - get rid of when user auth fixed
     }, [])
 
     // fetch current user (for authentication)
@@ -65,7 +65,7 @@ export default function Map() {
             }
         }
         //debug - uncomment this when user auth exists
-        // fetchUser()
+        fetchUser()
     }, [])
 
     // debug to see if log in works

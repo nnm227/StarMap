@@ -9,7 +9,7 @@ export default function MarkerPopup({ marker, user, onClose }) {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/markers/${marker.id}/comments`)
+        const response = await fetch(`http://localhost:3000/api/comments?markerId=${marker.id}`)
         const data = await response.json()
         setComments(data)
       } catch (error) {

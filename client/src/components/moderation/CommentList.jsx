@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../../styles/CommentList.css'
 
 // CommentList function accepts a curreny list of comments, a markerid, a user, and a variable to update parent if new comment added
@@ -6,6 +6,12 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
     const [newComment, setNewComment] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [localComments, setLocalComments] = useState(comments)
+
+    // Reset the local comments variable when new comments are selected 
+    useEffect(() => {
+        setLocalComments(comments || [])
+    }, [comments, markerId])
+
 
     // Function to send create a new comment
     const handleSubmit = async (e) => {
@@ -24,10 +30,12 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
                 })
             })
             if (response.ok) {
-                const addedComment = await response.json()
-                setLocalComments([...localComments, addedComment])
+                const newCommentData = await response.json()
+                setLocalComments([...localComments, newCommentData])
                 setNewComment('')
-                if (onCommentAdded) onCommentAdded()
+                if (onCommentAdded) {
+                    onCommentAdded(newCommentData)
+                }
             } else {
                 alert('Failed to add comment')
             }
@@ -118,7 +126,7 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
             <div className="comments-container">
                 {localComments.length === 0 ? (
                     <p className="no-comments-message">
-                        No comments yet. 
+                        No comments yet.
                     </p>
                 ) : (
                     localComments.map((comment) => (

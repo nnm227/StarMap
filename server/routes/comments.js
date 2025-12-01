@@ -104,7 +104,12 @@ router.post('/', requireAuth, async (req, res) => {
        RETURNING id, marker_id, user_id, content, created_at, updated_at, is_flagged`,
       [marker_id, req.user.id, content]
     )
-    res.status(201).json(result.rows[0])
+    // include username with comment
+    const comment = {
+      ...result.rows[0],
+      username: req.user.username
+    }
+    res.status(201).json(comment)
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Could not create comment' })
@@ -146,6 +151,8 @@ router.put('/:id', requireAuth, async (req, res) => {
     res.status(500).json({ error: 'Could not update comment' })
   }
 })
+
+
 
 // DELETE /api/comments/:id
 router.delete('/:id', requireAuth, async (req, res) => {

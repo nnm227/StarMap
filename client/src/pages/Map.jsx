@@ -8,7 +8,7 @@ export default function Map() {
     // state variables for map functions
     const [markers, setMarkers] = useState([])
     const [selectedMarker, setSelectedMarker] = useState(null)
-    const [user, setUser] = useState(null) // Currently logged-in user
+    const [user, setUser] = useState(null)
     const [isAddingMarker, setIsAddingMarker] = useState(false)
     const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
@@ -41,7 +41,7 @@ export default function Map() {
         // setDemoUser() // debug - get rid of when user auth fixed
     }, [])
 
-    // fetch current user (for authentication)
+    // fetch the current user from cookies
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -105,16 +105,17 @@ export default function Map() {
                 setIsAddingMarker={setIsAddingMarker}
                 user={user}
                 onMarkerAdded={() => {
-                    // Refresh markers after adding new one
+                    // refresh markers after adding new one
                     fetchMarkers()
                 }}
                 isSidebarVisible={isSidebarVisible}
             />
 
-            {/* Admin/Moderator panel (only show for authorized users) */}
-            {user && (user.role === 'admin' || user.role === 'moderator') && (
+            {/* admin/moderator panel (only show for authorized users) (need to add) */}
+
+            {/* {user && (user.role === 'admin' || user.role === 'moderator') && (
                 <ModeratorPanel user={user} markers={markers} />
-            )}
+            )} */}
         </div>
     )
 } 

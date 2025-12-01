@@ -8,11 +8,18 @@ const client = new Client({
   user: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
 
-  // Force SSL for the Lehigh server
-  ssl: {
+  // Don't use SSL if DB_SSL is set to false in env var (for local databases)
+  ssl: process.env.DB_SSL === 'false' ? false : {
     rejectUnauthorized: false
+
   }
+  // Force SSL for the Lehigh server
+  //   ssl: {
+  //     rejectUnauthorized: false
+  //   }
 })
+
+
 
 client.connect()
 

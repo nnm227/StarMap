@@ -52,7 +52,8 @@ router.post('/', requireAuth, requireRole('admin'), async (req, res) => {
   if (!email || !username || !password) {
     return res.status(400).json({ error: 'Missing required fields' })
   }
-  const validRoles = ['user', 'moderator', 'admin', 'banned']
+  // const validRoles = ['user', 'moderator', 'admin', 'banned']
+  const validRoles = ['user', 'moderator', 'admin']
   const roleToUse = validRoles.includes(role) ? role : 'user'
   try {
     const password_hash = await bcrypt.hash(password, 10)
@@ -138,7 +139,7 @@ router.delete('/:id', requireAuth, requireRole('admin'), async (req, res) => {
   try {
     const result = await query(
       `UPDATE users
-       SET role = 'banned', updated_at = NOW()
+       SET role = 'user', updated_at = NOW()
        WHERE id = $1
        RETURNING id, email, username, role, created_at, updated_at`,
       [targetId]

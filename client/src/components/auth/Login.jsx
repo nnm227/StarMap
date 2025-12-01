@@ -1,11 +1,13 @@
 // client/src/components/auth/Login.jsx
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -27,6 +29,10 @@ export default function Login() {
     }
 
     setSuccess(`Welcome, ${data.user.username}!`)
+    // After a short moment, redirect somewhere (home or map)
+    setTimeout(() => {
+      navigate('/map')
+    }, 500)
   }
 
   return (
@@ -58,6 +64,13 @@ export default function Login() {
 
         <button type="submit">Log in</button>
       </form>
+
+      <p style={{ marginTop: '1rem' }}>
+        New?{' '}
+        <Link to="/register">
+          Click here to create an account.
+        </Link>
+      </p>
     </div>
   )
 }

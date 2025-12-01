@@ -20,6 +20,7 @@ export default function MapContainer({
     setIsAddingMarker,
     user,
     onMarkerAdded,
+    onMarkerDeleted,
     isSidebarVisible
 }) {
     // Load map and marker references
@@ -103,10 +104,10 @@ export default function MapContainer({
         if (newMarkerPosition) {
             const tempMarker = L.marker([newMarkerPosition.lat, newMarkerPosition.lng], {
                 draggable: true,
-                opacity: 0.7 
+                opacity: 0.7
             })
-            .bindPopup('New marker location (drag to adjust)')
-            .addTo(markersLayer)
+                .bindPopup('New marker location (drag to adjust)')
+                .addTo(markersLayer)
 
             // Update position when it is dragged
             tempMarker.on('dragend', (e) => {
@@ -192,6 +193,7 @@ export default function MapContainer({
                     marker={selectedMarker}
                     user={user}
                     onClose={() => onMarkerSelect(null)}
+                    onMarkerDeleted={onMarkerDeleted}
                 />
             )}
         </div>

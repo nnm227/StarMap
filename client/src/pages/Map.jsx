@@ -74,6 +74,11 @@ export default function Map() {
         console.log('User logged in?', !!user)
     }, [user])
 
+    // remove deleted marker from map page
+    const handleMarkerDeleted = (deletedMarkerId) => {
+        setMarkers(markers.filter(m => m.id !== deletedMarkerId))
+        setSelectedMarker(null) // Close the popup
+    }
 
     return (
         <div className="map-page-container">
@@ -108,6 +113,7 @@ export default function Map() {
                     // refresh markers after adding new one
                     fetchMarkers()
                 }}
+                onMarkerDeleted={handleMarkerDeleted}
                 isSidebarVisible={isSidebarVisible}
             />
 

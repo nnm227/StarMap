@@ -68,7 +68,7 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
         }
     }
 
-    // Flag a comment if you are an admin or moderator
+    // Flag a comment for moderation if it is harmful
     const handleFlag = async (commentId) => {
         try {
             const response = await fetch(`http://localhost:3000/api/comments/${commentId}/flag`, {

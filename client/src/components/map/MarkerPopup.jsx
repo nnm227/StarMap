@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import CommentList from '../moderation/CommentList'
 
 // Shows details including comments on a marker when you click on it
-export default function MarkerPopup({ marker, user, onClose }) {
+export default function MarkerPopup({ marker, user, onClose, onMarkerDeleted }) {
   const [comments, setComments] = useState([])
 
   // Fetch comments for this marker on marker clicked
@@ -30,7 +30,11 @@ export default function MarkerPopup({ marker, user, onClose }) {
         credentials: 'include'
       })
       onClose()
-      window.location.reload() // Refresh markers
+
+      //update the map container when marker is deleted
+      if (onMarkerDeleted) {
+        onMarkerDeleted(marker.id)
+      }
     } catch (error) {
       console.error('Error deleting marker:', error)
     }
@@ -75,7 +79,7 @@ export default function MarkerPopup({ marker, user, onClose }) {
 
       <hr />
       {/* a comments section with a way to add comments and moderation features */}
-      <CommentList 
+      <CommentList
         comments={comments}
         markerId={marker.id}
         user={user}

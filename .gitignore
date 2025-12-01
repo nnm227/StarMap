@@ -1,5 +1,6 @@
 .env
 server/.env
 server/.env_lehigh
+server/.env_local
 server/node_modules
 client/node_modules

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import CommentList from '../moderation/CommentList'
+import '../../styles/MarkerPopup.css'
+
 
 // Shows details including comments on a marker when you click on it
 export default function MarkerPopup({ marker, user, onClose, onMarkerDeleted }) {
@@ -40,23 +42,15 @@ export default function MarkerPopup({ marker, user, onClose, onMarkerDeleted }) 
     }
   }
 
+
+//  NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
+//  Prompt: please remove all styling elements into a seperate css file
+//  Response: See below. 
   return (
-    <div style={{
-      position: 'absolute',
-      top: '20px',
-      right: '20px',
-      width: '400px',
-      backgroundColor: 'white',
-      padding: '20px',
-      borderRadius: '8px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
-      zIndex: 1000,
-      maxHeight: '80vh',
-      overflow: 'auto'
-    }}>
+    <div className="marker-popup">
       <button
         onClick={onClose}
-        style={{ float: 'right', cursor: 'pointer' }}
+        className="marker-popup-close"
       >
         ✕
       </button>
@@ -72,7 +66,7 @@ export default function MarkerPopup({ marker, user, onClose, onMarkerDeleted }) 
         user.role === 'admin' ||
         user.role === 'moderator'
       ) && (
-          <button onClick={handleDelete} style={{ backgroundColor: 'red', color: 'white' }}>
+          <button onClick={handleDelete} className="marker-popup-delete-btn">
             Delete Marker
           </button>
         )}

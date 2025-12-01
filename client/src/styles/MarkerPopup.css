@@ -1,0 +1,64 @@
+/* AI Disclosure: 
+ NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
+ Prompt: please remove all styling elements into a seperate css file
+ Response: See below. 
+*/
+
+
+.marker-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.marker-popup-close {
+  float: right;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #666;
+}
+
+.marker-popup-close:hover {
+  color: #000;
+}
+
+.marker-popup h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.marker-popup p {
+  margin: 8px 0;
+}
+
+.marker-popup hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.marker-popup-delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.marker-popup-delete-btn:hover {
+  background-color: #c82333;
+}

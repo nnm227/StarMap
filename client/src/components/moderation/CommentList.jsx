@@ -69,26 +69,26 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
     }
 
     // Flag a comment for moderation if it is harmful
-    const handleFlag = async (commentId) => {
-        try {
-            const response = await fetch(`http://localhost:3000/api/comments/${commentId}/flag`, {
-                method: 'PUT',
-                credentials: 'include'
-            })
+    // const handleFlag = async (commentId) => {
+    //     try {
+    //         const response = await fetch(`http://localhost:3000/api/comments/${commentId}/flag`, {
+    //             method: 'PUT',
+    //             credentials: 'include'
+    //         })
 
-            if (response.ok) {
-                setLocalComments(localComments.map(c =>
-                    c.id === commentId ? { ...c, is_flagged: true } : c
-                ))
-                alert('Comment flagged for moderation')
-            } else {
-                alert('Failed to flag comment')
-            }
-        } catch (error) {
-            console.error('Error flagging comment:', error)
-            alert('Error flagging comment')
-        }
-    }
+    //         if (response.ok) {
+    //             setLocalComments(localComments.map(c =>
+    //                 c.id === commentId ? { ...c, is_flagged: true } : c
+    //             ))
+    //             alert('Comment flagged for moderation')
+    //         } else {
+    //             alert('Failed to flag comment')
+    //         }
+    //     } catch (error) {
+    //         console.error('Error flagging comment:', error)
+    //         alert('Error flagging comment')
+    //     }
+    // }
 
     return (
         // AI Disclosure: 
@@ -166,14 +166,14 @@ export default function CommentList({ comments, markerId, user, onCommentAdded }
                                             )}
 
                                         {/* Flag button - show if user doesn't own the comment and it's not already flagged */}
-                                        {user.id !== comment.user_id && !comment.is_flagged && (
+                                        {/* {user.id !== comment.user_id && !comment.is_flagged && (
                                             <button
                                                 onClick={() => handleFlag(comment.id)}
                                                 className="comment-flag-button"
                                             >
                                                 Flag
                                             </button>
-                                        )}
+                                        )} */}
                                     </div>
                                 )}
                             </div>

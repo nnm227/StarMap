@@ -1,3 +1,5 @@
+import '../../styles/Login.css'
+
 // client/src/components/auth/Login.jsx
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -35,42 +37,55 @@ export default function Login() {
     }, 500)
   }
 
+/* AI Disclosure: 
+ NAME OF AI MODEL: Claude Sonnet 4.5 (Github Copilot)
+ Prompt: Please add professional styling to the login page.
+ Response: See below. See also ../../styles/Login.css
+*/
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Log In</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Welcome Back</h1>
+        <p className="login-subtitle">Log in to continue to StarMap</p>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label><br />
-          <input
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            type="email"
-            required
-          />
-        </div>
+        {error && <div className="login-alert login-alert-error">{error}</div>}
+        {success && <div className="login-alert login-alert-success">{success}</div>}
 
-        <div>
-          <label>Password</label><br />
-          <input
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="login-form-group">
+            <label>Email</label>
+            <input
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
 
-        <button type="submit">Log in</button>
-      </form>
+          <div className="login-form-group">
+            <label>Password</label>
+            <input
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              type="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
 
-      <p style={{ marginTop: '1rem' }}>
-        New?{' '}
-        <Link to="/register">
-          Click here to create an account.
-        </Link>
-      </p>
+          <button type="submit" className="login-submit-btn">
+            Log In
+          </button>
+        </form>
+
+        <p className="login-footer">
+          New to StarMap?{' '}
+          <Link to="/register">
+            Create an account
+          </Link>
+        </p>
+      </div>
     </div>
   )
 }

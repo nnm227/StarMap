@@ -62,7 +62,7 @@ export default function Layout() {
         <div className="layout-container">
             <nav className="navbar">
                 <ul className="navbar-list">
-                    <li className="navbar-brand">StarMap</li>
+                    <li className="navbar-brand">⭐ StarMap</li>
                     <li>
                         <Link to="/" className="navbar-link">Home</Link>
                     </li>

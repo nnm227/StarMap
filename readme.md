@@ -311,7 +311,7 @@ For issues or questions:
 ### Project Breakdown By Team Member
 
 ## Nikhil Manakkal
-* Main task: Front End Design
+* Main task: design features for collaborative map
     * designed home page for website and map 
     * add markers to the map 
     * remove markers if marker owner or admin/mod

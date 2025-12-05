@@ -5,8 +5,6 @@
 
 ### Setup Guide
 
-# StarMap - Setup Instructions
-
 A full-stack collaborative application where users can add markers and comments to a shared map.
 
 ## Prerequisites

@@ -180,7 +180,7 @@ Available roles:
 - `user` (default) - Can add markers and comments
 - `moderator` - Can delete any markers/comments (currrently the same as admin)
 - `admin` - Full access (including user management in the future)
-- `banned` - Cannot post markers or comments, cannot log in
+- `banned` - Cannot post markers or comments
 
 ## 6. Verify Installation
 

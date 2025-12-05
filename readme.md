@@ -3,9 +3,7 @@
 ## Add your full name and Lehigh email address to this README!
 ## Nikhil Manakkal, nnm227@lehigh.edu
 
-### Setup Guide
-
-A full-stack collaborative application where users can add markers and comments to a shared map.
+# Setup Guide
 
 ## Prerequisites
 

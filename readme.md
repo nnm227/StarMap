@@ -1,8 +1,3 @@
-# CSE264 Final Project: Full Stack
-## Due: Friday, December 5, 2025 at 11:59 PM
-## Add your full name and Lehigh email address to this README!
-## Nikhil Manakkal, nnm227@lehigh.edu
-
 # Setup Guide
 
 ## Prerequisites

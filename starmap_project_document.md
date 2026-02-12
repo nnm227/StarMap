@@ -4,13 +4,25 @@
 **Project Name:** StarMap
 
 ## Team Members
-* **Daniel Lee - Full Stack**
-  * Will help on both frontend and backend, connecting the UI and API, designing database.
-* **Nikhil Manakkal - Frontend**
-  * Will work on user interface, using Leaflet.js, building map interactions.
-* **Jake Fifer - Backend**
-  * Will work on server side API, database queries, authentication.
-
+# Nikhil Manakkal
+* Main task: design features for collaborative map that function with backend
+    * designed home page for website and map 
+    * add markers to the map 
+    * remove markers if marker owner or admin/mod
+    * add/remove comments from markers
+# Daniel Lee
+* Main task: Set up logins and user features
+    * page to create user accounts (send POST request to backend)
+    * page to log users into accounts (send GET request to backend) 
+# Jake Fifer
+* Main task: Created backend
+    * GET, POST, PUT, DELETE requests for Users
+    * GET, POST, PUT, DELETE requests for Markers
+    * GET, POST, PUT, DELETE requests for Comments
+# Everyone
+* Work together to make sure that feature integrate together
+* Communicate to make sure that backend and frontend follow the same structure (ie requests made from the frontend matches what the backend expects)
+* Finalize project documentation such as installation guide and API setup
 ## Application Functionality
 
 ### User Accounts & Roles

@@ -10,6 +10,8 @@
     * add markers to the map 
     * remove markers if marker owner or admin/mod
     * add/remove comments from markers
+    * finalized project documentation (installation guide and API setup)
+
 # Daniel Lee
 * Main task: Set up logins and user features
     * page to create user accounts (send POST request to backend)
@@ -22,7 +24,6 @@
 # Everyone
 * Work together to make sure that feature integrate together
 * Communicate to make sure that backend and frontend follow the same structure (ie requests made from the frontend matches what the backend expects)
-* Finalize project documentation such as installation guide and API setup
 ## Application Functionality
 
 ### User Accounts & Roles

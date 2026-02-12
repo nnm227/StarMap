@@ -6,7 +6,8 @@
 ## Team Members
 # Nikhil Manakkal
 * Main task: design features for collaborative map that function with backend
-    * designed home page for website and map 
+    * designed home page for website and map
+    * designed database rules for table creation
     * add markers to the map 
     * remove markers if marker owner or admin/mod
     * add/remove comments from markers
